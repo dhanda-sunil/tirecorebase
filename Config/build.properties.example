@@ -1,0 +1,15 @@
+# Copy this file to build.properties and update the values below for your system
+
+# set the timezone for the timestamp task
+timezone=America/Denver
+cake.command=./Console/cake
+
+
+# database config
+#### For multiple databases, separate the database names with commas, e.g.
+#db.name=treadtracks,treadtracks_customer_1,treadtracks_customer_2
+db.name=treadtracks
+db.server=127.0.0.1
+db.port=3306
+db.username=root
+db.password=root

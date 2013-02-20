@@ -1,0 +1,944 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TireCore\n"
+"POT-Creation-Date: 2012-12-20 19:44+0000\n"
+"PO-Revision-Date: 2012-12-21 01:22+0100\n"
+"Last-Translator: Roland Schütz <roland@banchaproject.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+
+#: webroot/bancha-scaffold/latest-build/bancha-scaffold-debug.js:727
+#: webroot/bancha-scaffold/latest-build/bancha-scaffold-production.js:715
+#: webroot/bancha-scaffold/latest-build/bancha-scaffold.js:20
+#: webroot/bancha-scaffold/src/scaffold.js:575
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: webroot/shopfloor/build/app/controller/AppController.js:59;279
+#: webroot/workorder/build/app/controller/AccountSelection.js:291
+msgid "Loading data..."
+msgstr "Lade Daten…"
+
+#: webroot/shopfloor/build/app/controller/AppController.js:64;73
+msgid "Stats"
+msgstr "Stats"
+
+#: webroot/shopfloor/build/app/controller/AppController.js:72;252
+#: webroot/shopfloor/build/app/controller/Customer.js:37
+#: webroot/shopfloor/build/app/controller/InitialInspection.js:29
+#: webroot/shopfloor/build/custom/error-handling.js:8
+#: webroot/shopfloor/build/custom/controller/mixin/RecordController.js:367;439;488
+#: webroot/workorder/build/app/controller/AccountSelection.js:99
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:87;104
+#: webroot/workorder/build/custom/controller/mixin/RecordController.js:371;443;492
+msgid "Error"
+msgstr "Fehler"
+
+#: webroot/shopfloor/build/app/controller/AppController.js:73
+msgid "Could not load %s data from server, please try again!"
+msgstr ""
+"Konnte die Daten für %s nicht vom Server laden, bitte versuchen Sie es "
+"erneut!"
+
+#: webroot/shopfloor/build/app/controller/AppController.js:86
+#: webroot/shopfloor/build/app/controller/FinalInspection.js:85
+msgid "Trying to print result:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:147
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:116
+msgid "NA"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:165
+msgid "Barcode needed"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:166
+msgid "Please enter a barcode or use the barcode scanner"
+msgstr "Bitte geben Sie den Barcode ein oder verwenden Sie den Barcode-Scanner"
+
+#: webroot/shopfloor/build/app/controller/AppController.js:253
+msgid "Could not load Checkpoint name"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:355
+msgid "Support Information"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:363
+msgid "Close"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:373
+msgid "Local IP:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:379
+msgid "External IP:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/AppController.js:385
+msgid "MAC:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:63
+#: webroot/shopfloor/build/app/view/Footer.js:30
+#: webroot/workorder/build/app/controller/Authentication.js:62
+#: webroot/workorder/build/app/view/MainPanel.js:83;149
+msgid "Logging in..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:80
+#: webroot/workorder/build/app/controller/Authentication.js:79
+msgid "Login Failed!"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:81
+#: webroot/workorder/build/app/controller/Authentication.js:80
+msgid "Username and password don't match!"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:85
+#: webroot/workorder/build/app/controller/Authentication.js:84
+msgid "Warning!"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:86
+#: webroot/workorder/build/app/controller/Authentication.js:85
+msgid "Authentication server is unreachable or returned with an error"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:98
+#: webroot/workorder/build/app/controller/Authentication.js:97
+msgid "Logging out..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Authentication.js:122
+#: webroot/shopfloor/build/app/controller/ComponentListView.js:25
+#: webroot/shopfloor/build/app/view/ComponentListView.js:25
+#: webroot/workorder/build/app/controller/AccountSelection.js:208
+#: webroot/workorder/build/app/controller/Authentication.js:120
+msgid "Loading..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:55
+#: webroot/shopfloor/build/app/controller/BuildCheckpoint.js:52
+msgid "Server Error"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:56
+#: webroot/shopfloor/build/app/controller/BuildCheckpoint.js:53
+msgid "An unknown error occured. Please reload the App"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:93
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:30
+msgid "BUFF"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:94
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:31
+msgid "REC"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:95
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:32
+msgid "ALT 1"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:96
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:33
+msgid "ALT 2"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:98
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:35
+msgid "Diameter"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:103
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:40
+msgid "Crown Width"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:108
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:45
+msgid "Radius"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:113
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:50
+msgid "Machine Setting"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:118
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:55
+msgid "Shoulder Radius"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:123
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:60
+msgid "Shoulder Length"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:128
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:65
+msgid "Shoulder Angle"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:133
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:70
+msgid "Steel Belt"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:137
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:75
+msgid "Shoulder Brushing"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/BuffingCheckpoint.js:141
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:80
+msgid "Bead Width"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Checkpoint.js:45
+msgid "Choose Checkpoint"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Checkpoint.js:46
+msgid "Please choose a new checkpoint from below:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Checkpoint.js:88
+msgid "Loading Repair Screen..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/CoItem.js:39
+msgid "Adjustable"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/CoItem.js:40
+msgid "Is this item an adjustable?"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/Customer.js:38
+msgid "Not yet implemented"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/FailProcess.js:108;139
+msgid "Please select what to do with the casing"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/FailProcess.js:149
+#: webroot/shopfloor/build/app/controller/MainLeftSidePanel.js:76
+msgid "Saving data..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/FailProcess.js:190
+msgid "Successfully Saved"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/FailProcess.js:191
+msgid "Saved all changes."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/FinalInspection.js:91
+#: webroot/shopfloor/build/app/view/Footer.js:76
+msgid "Print"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/InitialInspection-OldBackup.js:59
+msgid "The estimates repairs are more then allowed repairs"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/InitialInspection-OldBackup.js:251
+msgid "Value not available"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/InitialInspection.js:90;99;108;117
+msgid "Attention"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/InitialInspection.js:90;99;108;117
+msgid "You have selected more repairs than what is allowed."
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint-OldBackup.js:112
+msgid "Allowed repairs exceeded"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint-OldBackup.js:123
+msgid "Total repairs exceeded"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:97
+msgid "SIZE"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:102;215
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:35
+msgid "CROWN"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:107;220
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:40
+msgid "SHOULDER"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:112;225
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:45
+msgid "SIDEWALL"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:117;230
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:50
+msgid "BEAD"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:242
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:61
+msgid "PREVIOUS"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:298
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:144
+msgid "REQUIRED"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:355;416
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:227
+msgid "TOTAL"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:472
+#: webroot/shopfloor/build/app/view/InitialInspectionGrid.js:287
+msgid "LIMITS"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:761;799;837;875
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:375;506;637
+msgid "No Matching Items"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:769
+msgid "Crown Repair Patches"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:807
+msgid "Shoulder Repair Patches"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:845
+msgid "Sidewall Repair Patches"
+msgstr ""
+
+#: webroot/shopfloor/build/app/controller/RepairCheckpoint.js:883
+msgid "Bead Repair Patches"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:25
+msgid "Buff Specs"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:96
+#: webroot/shopfloor/build/app/view/BuildCheckpointPanel.js:31
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:58
+#: webroot/workorder/build/app/view/WorkOrderItems.js:176
+msgid "Tread Design"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/BuffingCheckpointPanel.js:104
+#: webroot/shopfloor/build/app/view/BuildCheckpointPanel.js:40
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:68
+msgid "Tread Width"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/DotTextField.js:26;148
+#: webroot/workorder/build/app/view/DotTextField.js:25
+msgid "DOT Serial Number"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/FinalInspectionCheckpointPanel.js:52
+msgid "Repairs"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/FinalInspectionCheckpointPanel.js:78
+msgid "Design"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/FinalInspectionCheckpointPanel.js:88
+msgid "Width"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/FinalInspectionCheckpointPanel.js:105
+msgid "Tread Desgn / Width"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:34
+msgid "You are currently logged in as:<br />{first_name} {last_name}"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:42
+#: webroot/workorder/build/app/view/MainPanel.js:96;162
+msgid "Logout"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:49
+msgid "Support"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:57
+msgid "Production"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:64
+msgid "Change Checkpoint"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:85
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:138
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:160
+#: webroot/workorder/build/app/view/CustomerSelection.js:100
+#: webroot/workorder/build/app/view/MainPanel.js:108;174
+msgid "Cancel"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:95
+msgid "Fail"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Footer.js:105
+msgid "Pass"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Header.js:38
+msgid "Loading Checkpoint..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Header.js:44
+#: webroot/workorder/build/app/view/WorkOrderItems.js:71
+msgid "Barcode"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Header.js:50
+#: webroot/workorder/build/app/view/Header.js:38
+msgid "Work Order Number"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Header.js:56
+msgid "Line Number"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Header.js:86
+msgid "Loading Customer Data..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/Header.js:102
+#: webroot/workorder/build/app/view/Header.js:109
+msgid "Requested By"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/InitialInspectionCheckpointPanel.js:39
+msgid "Remaining Tread Depth (32nd)"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/InitialInspectionCheckpointPanel.js:45
+msgid "Previous Times Capped"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/LoginWindow.js:34
+#: webroot/workorder/build/app/view/LoginWindow.js:34
+msgid "Login"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/LoginWindow.js:46
+#: webroot/workorder/build/app/view/LoginWindow.js:46
+msgid "User name"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/LoginWindow.js:51
+#: webroot/workorder/build/app/view/LoginWindow.js:54
+msgid "Password"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/LoginWindow.js:59
+#: webroot/workorder/build/app/view/LoginWindow.js:62
+msgid "login"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:50
+msgid "Loading Casing..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:63
+msgid "Model Profile"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:72
+msgid "Bead Plate ??????"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:77
+msgid "Casing Age"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:82
+msgid "Tag Number"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:87
+msgid "Casing Grade"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:92
+msgid "Recommended Buff"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:97
+msgid "Weather Checking"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:116
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:122
+#: webroot/workorder/build/app/view/AccountSelection.js:57
+msgid "Special Instructions"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftEditPanel.js:146
+#: webroot/workorder/build/app/view/MainPanel.js:191
+msgid "Save"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:42
+msgid "Loading Casing Data..."
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:50
+msgid "Tread Design:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:51
+msgid "Mold Profile:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:53
+msgid "Tread Width:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:54
+msgid "Bead Plate:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:56
+msgid "Casing Age:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:57
+msgid "Tag Number:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:59
+msgid "Casing Grade:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:60
+msgid "Recommended Buff:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:62
+msgid "Weather Checking:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:63
+msgid "DOT:"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/MainLeftPanel.js:139
+msgid "edit"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:37
+msgid "Please select the reason for the fail"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:71
+msgid "Sidewall Damage"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:76
+msgid "Shoulder Separation"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:81
+msgid "Bead Separation"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:99
+msgid "Too Many Repairs"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:103
+msgid "Brake Skid"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:108
+msgid "Impact Break"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:137
+msgid "Return as Received"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:144
+msgid "Scrap"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:168
+msgid "Up"
+msgstr ""
+
+#: webroot/shopfloor/build/app/view/TireFailScreen.js:176
+msgid "Down"
+msgstr ""
+
+#: webroot/shopfloor/build/custom/controller/mixin/RecordController.js:368
+#: webroot/workorder/build/custom/controller/mixin/RecordController.js:372
+msgid "Could not load %s data, please try again!"
+msgstr ""
+
+#: webroot/shopfloor/build/custom/controller/mixin/RecordController.js:440
+#: webroot/workorder/build/custom/controller/mixin/RecordController.js:444
+msgid "Something wen't wrong, couln't save %s data"
+msgstr ""
+
+#: webroot/shopfloor/build/custom/controller/mixin/RecordController.js:489
+#: webroot/workorder/build/custom/controller/mixin/RecordController.js:493
+msgid ""
+"There is more then one field with changed data for %s on the screen, not "
+"sure which data to collect!"
+msgstr ""
+
+#: webroot/shopfloor/build/custom/controller/mixin/ViewController.js:239
+#: webroot/workorder/build/custom/controller/mixin/ViewController.js:238
+msgid "Invalid Data"
+msgstr ""
+
+#: webroot/shopfloor/build/custom/controller/mixin/ViewController.js:242
+#: webroot/workorder/build/custom/controller/mixin/ViewController.js:240
+msgid "There are errors in your data:"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:99
+msgid "Something went wrong"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:119
+msgid "Mobile"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:120
+msgid "Work"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:121
+msgid "Home"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:122
+msgid "Pager"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:123
+msgid "Fax"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:124
+msgid "Other"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:135;160
+msgid "Add Phone Number"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:136
+msgid "Please select a type:"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:161
+msgid "Please enter a number:"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:203
+#: webroot/workorder/build/app/view/Header.js:117
+msgid "Please select a requestor"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/AccountSelection.js:218
+msgid "No phone number available."
+msgstr ""
+
+#: webroot/workorder/build/app/controller/Confirmation.js:51
+msgid "Saving..."
+msgstr ""
+
+#: webroot/workorder/build/app/controller/Confirmation.js:81
+msgid "Success"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/Confirmation.js:81
+msgid "Successfully saved customer order"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/Confirmation.js:92;101;110
+msgid "Unknown Error"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/Confirmation.js:92;101;110
+msgid "Something went wrong, please reload the page!"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:88;105
+msgid "Could not recognize the clicked button"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:222
+msgid "More Information"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:230
+msgid "Done"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:238
+msgid "Remaining Tread"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:244
+msgid "Vehicle Number"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:250
+msgid "Brand Number"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:256
+msgid "Number of Times Capped"
+msgstr ""
+
+#: webroot/workorder/build/app/controller/WorkOrderItems.js:387;518;649
+msgid "Search..."
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:37
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:61
+msgid "Account"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:43
+msgid "Account Number"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:86
+msgid "Billing Address"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:94;123
+msgid "Please select an address"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:97;126
+msgid "{line1}<br/>{line2}<br/>{zip}<tpl if=\"zip\">, </tpl>{state}"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:115
+msgid "Shipping Address"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:142
+msgid "Select A Contact Number"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:147
+msgid "No phone number defined yet"
+msgstr ""
+
+#: webroot/workorder/build/app/view/AccountSelection.js:160
+msgid "Add Number"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:23
+msgid "Work Order Details"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:26
+msgid "Customer:"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:28
+msgid "Account:"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:33
+msgid "Work Order Number:"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:35
+msgid "PO Number:"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:39
+msgid "Pick Up Date:"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:41
+msgid "Requested by:"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:47
+msgid "Order Items"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Confirmation.js:62
+msgid "Total Items: {count}"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:40
+msgid "Select Customer"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:44
+msgid "Search for"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:51
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:71
+msgid "Company Name"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:61
+msgid "First Name"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:71
+msgid "Last Name"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:89
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:101
+msgid "No matches to your search"
+msgstr ""
+
+#: webroot/workorder/build/app/view/CustomerSelection.js:110
+msgid "New Customer"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Header.js:34
+msgid "Enter Order Details"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Header.js:42
+msgid "Work Order Date"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Header.js:52
+msgid "Picked Up Date"
+msgstr ""
+
+#: webroot/workorder/build/app/view/Header.js:73
+msgid "PO Number"
+msgstr ""
+
+#: webroot/workorder/build/app/view/MainPanel.js:88;154
+msgid "You are current logged in as:<br />{first_name} {last_name}"
+msgstr ""
+
+#: webroot/workorder/build/app/view/MainPanel.js:116;182
+msgid "Back"
+msgstr ""
+
+#: webroot/workorder/build/app/view/MainPanel.js:126
+msgid "Next"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:35
+msgid "Casings"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:49;325
+msgid "Create"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:55
+msgid "#"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:88;251
+msgid "Line Code"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:111
+msgid "DOT Code"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:129
+msgid "Size"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:152
+msgid "Brand"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:199;286
+msgid "Actions"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:210
+msgid "more"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:216
+msgid "duplicate"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:222;297
+msgid "delete"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:243
+msgid "Services"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderItems.js:274
+msgid "Service"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:40
+msgid "Select Work Order"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:44
+msgid "Search any field below"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:51
+msgid "Work Order"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:82
+msgid "Contact Person"
+msgstr ""
+
+#: webroot/workorder/build/app/view/WorkOrderSelection.js:116
+msgid "New Work Order"
+msgstr ""
+
+#: webroot/workorder/build/app/view/override/GridView.js:43
+msgid "Please narrow down your search, there are still {totalCount} matches!"
+msgstr ""

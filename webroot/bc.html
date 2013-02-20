@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<style>
+		#result {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<section class="row-fluid">
+	<article class="span12">
+		<form>
+			<fieldset>
+				<legend>Barcode System</legend>
+				<label>Scan Barcode:</label>
+				<input type="text" placeholder="Scan something…" id="theScan" name="theScan" />
+				<span class="help-block">Use the Socket Scanner</span>
+			</fieldset>
+			<h3 id="result"></h3>
+		</form>
+	</article>
+</section>
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$('body').on('submit', 'form', function(event) {
+		event.preventDefault();
+
+		$('#result').text($('form input').val() + " was scanned");
+		$('form input').val('');
+	})
+</script>
+
+</body>
+</html>

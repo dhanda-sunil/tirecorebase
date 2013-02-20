@@ -1,0 +1,38 @@
+/* 
+    Document   : default
+    Created on : Oct 2, 2012, 11:15:04 AM
+    Author     : chris
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+body{
+    font-size:13px;
+}
+#content{
+    padding:15px;
+}
+.currentPage{
+    font-weight:bold;
+    color:#a0a0a0 !important;
+}
+#controls{
+    float:left;
+    width:250px;
+    margin-right:25px;
+}
+#controls ul{
+    margin:0;
+    padding:0;
+}
+table{
+    font-size:13px;
+}
+#debug-kit-toolbar{
+    top:0;
+    position:absolute;
+    right:0;
+}

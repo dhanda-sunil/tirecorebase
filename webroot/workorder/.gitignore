@@ -1,0 +1,7 @@
+.DS_Store
+.idea
+.architect
+
+# this is only needed for running the touch gridpanel samples, so ignore it in repro
+build/plugins/sencha-touch-2.0.1.1/*
+sencha-architect/plugins/sencha-touch-2.0.1.1/*

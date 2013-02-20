@@ -1,0 +1,12 @@
+# Copy this file to db.properties and update the values below for your system
+
+# set the timezone for the timestamp task
+timezone=America/Denver
+cake.command=/etc/cakephp/lib/Cake/Console/cake
+
+# database config
+db.name=treadtracks_quality_tire,treadtracks_wonderland
+db.server=127.0.0.1
+db.port=3306
+db.username=root
+db.password=

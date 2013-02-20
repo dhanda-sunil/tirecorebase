@@ -1,0 +1,12 @@
+# Copy this file to db.properties and update the values below for your system
+
+# set the timezone for the timestamp task
+timezone=America/Denver
+cake.command=/usr/bin/cake
+
+# database config
+db.name=treadtracks
+db.server=localhost
+db.port=3306
+db.username=root
+db.password=

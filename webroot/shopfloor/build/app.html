@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TreadTracksShopFloor</title>
+    <!-- Include Sencha Touch CSS -->
+    <link rel="stylesheet" href="http://extjs.cachefly.net/touch/sencha-touch-2.1.0/resources/css/sencha-touch.css">
+    <!-- Include Custom CSS -->
+    <link rel="stylesheet" href="custom/custom.css">
+    <!-- Include Extension CSS: NumberSplitField -->
+    <link rel="stylesheet" href="custom/field/numbersplitfield/numbersplitfield.css">
+    <!-- Include Extension CSS: Keyboard -->
+    <link href="custom/Keyboard.css" rel="stylesheet" type="text/css">
+    <!-- Include Sencha Touch -->
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.1.0/sencha-touch-all.js"></script>    
+    <!-- Include Bancha -->
+    <script src="/Bancha/js/tracekit/tracekit.js"></script>
+    <script src="custom/error-handling.js"></script>
+    <script src="/Bancha/js/Bancha.js"></script>
+    <script src="/bancha-api/models/all.js"></script>
+    <!-- Include Mixins -->
+    <script src="custom/controller/mixin/RecordController.js"></script>
+    <script src="custom/controller/mixin/ViewController.js"></script>
+    <script src="plugins/localizer/app/lib/Localizer.js"></script>    
+    <!-- Include Extension: NumberSplitField -->
+    <script src="custom/field/numbersplitfield/numbersplitfield.js"></script>
+    <!-- Include Application Config -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript">
+        if (!Ext.browser.is.WebKit) {
+            alert("The current browser is unsupported.\n\nSupported browsers:\n" +
+                "Google Chrome\n" +
+                "Apple Safari\n" +
+                "Mobile Safari (iOS)\n" +
+                "Android Browser\n" +
+                "BlackBerry Browser"
+            );
+        }
+    </script>
+</head>
+<body></body>
+</html>

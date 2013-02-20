@@ -1,0 +1,22 @@
+[submodule "Plugin/Bancha"]
+	path = Plugin/Bancha
+	url = https://github.com/TCSTech/Bancha.git
+	update = checkout
+[submodule "Plugin/BanchaDeveloperRemoteApi"]
+	path = Plugin/BanchaDeveloperRemoteApi
+	url = https://github.com/TCSTech/BanchaDeveloperRemoteApi.git
+	update = checkout
+[submodule "Plugin/DebugKit"]
+	path = Plugin/DebugKit
+	url = git://github.com/cakephp/debug_kit.git
+	update = checkout
+[submodule "webroot/bancha-scaffold"]
+	path = webroot/bancha-scaffold
+	url = git://github.com/Bancha/BanchaScaffold.git
+	update = checkout
+[submodule "Plugin/AclExtras"]
+	path = Plugin/AclExtras
+	url = https://github.com/markstory/acl_extras.git
+[submodule "Plugin/acl"]
+	path = Plugin/acl
+	url = git://github.com/interlock/acl_plugin.git

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="/usr/share/php/data/phing/etc/phing-grammar.rng"
+        type="application/xml"
+        schematypens="http://relaxng.org/ns/structure/1.0" ?>
+
+<project name="dbdeploy_treadtracks" default="main">
+
+    <!-- load properties -->
+    <property file="Config/build.properties"/>
+    <property name="db.pdoUrlNoDbname" value="mysql:host=${db.server};port=${db.port};"/>
+    <property name="db.pdoUrl" value="mysql:host=${db.server};port=${db.port};dbname=${db.name};"/>
+    <property name="dir.schema" value="Config/Schema/"/>
+    <property name="dir.migrations" value="${dir.schema}Migrations"/>
+    <property name="dir.buildfiles" value="${dir.schema}Builds"/>
+    <property name="dir.dumps" value="${dir.schema}Dumps"/>
+
+
+    <!-- define main targets -->
+    <target name="main" description="default tasks: updates database, syncs acos"
+            depends="set-timezone, update-database, aco_sync, clear-cache"/>
+    <target name="clean" description="Starts a fresh, clean database from scratch"
+            depends="set-timezone, drop-database, create-database, update-database, base-data, aco_sync"/>
+
+    <target name="update"
+            description="When you start your new day, just run this script and you are ready for developing new, awesome things. It will pull changes from git, update the database and delete your cache.">
+
+        <!-- pull git changes -->
+        <!-- the pear package is not yet stable <gitpull repository="./" / -->
+        <exec command="git pull" logoutput="true" checkreturn="true"/>
+        <exec command="git submodule update" logoutput="true" checkreturn="true"/>
+        <!-- make a soft update of all git modules -->
+
+        <!-- update the database -->
+        <phingcall target="main"/>
+
+        <!-- remove all old cache file to avoid problems -->
+    </target>
+
+    <target name="base-data"
+            description="Loads the base_data.sql file">
+        <echo message="Loading base data into: ${db.name}"/>
+        <echo message="mysql:host=${db.server};port=${db.port};dbname=${db.name}"/>
+        <pdosqlexec url="mysql:host=${db.server};port=${db.port};dbname=${db.name}"
+                    userid="${db.username}"
+                    password="${db.password}">
+            <fileset dir="${dir.schema}">
+                <include name="base_data.sql"/>
+            </fileset>
+        </pdosqlexec>
+    </target>
+
+
+    <!-- helper tasks -->
+
+    <target name="clear-cache">
+        <delete>
+            <fileset dir="tmp/cache">
+                <include name="models/**"/>
+                <include name="persistent/**"/>
+                <include name="views/**"/>
+                <exclude name="**/empty"/>
+            </fileset>
+        </delete>
+
+    </target>
+
+    <target name="set-timezone">
+
+        <!-- set local time zone, otherwise we get php warnings in the console -->
+        <adhoc-task name="timezone"><![CDATA[
+            class TimezoneTask extends Task {
+                private $timezone;
+                function setZone($timezone) {
+                    $this->timezone = $timezone;
+                }
+                function main() {
+                    date_default_timezone_set($this->timezone);
+                    $this->log("Setting timezone to ".$this->timezone);
+                }
+            }
+        ]]></adhoc-task>
+        <timezone zone="${timezone}"/>
+
+        <!-- Make the current buildtime available as a property -->
+        <tstamp>
+            <!-- Format is, e.g. 2009-10-03 16:31:15 -->
+            <format property="build_time" pattern="%Y-%m-%d %H:%m:%s"/>
+        </tstamp>
+    </target>
+
+    <target name="split-databases"
+            description="Make calls to multiple databases (names need to be separated by commas in config file)">
+        <if>
+            <contains string="${db.name}" substring=","/>
+            <then>
+                <echo message="Splitting Databases: ${db.name}"/>
+                <foreach list="${db.name}" param="db.name" target="${task.target}"/>
+            </then>
+            <else>
+                <echo message="Single Database: ${db.name}"/>
+                <phingcall target="${task.target}">
+                    <param name="db.name" value="${db.name}"/>
+                </phingcall>
+            </else>
+        </if>
+    </target>
+    <target name="loadConfig">
+        <property file="${config.absFile}"/>
+        <!-- Ideally, I would send both the property file and the target task to call, but I can't at this point -->
+    </target>
+
+    <target name="dump-database" description="Checks for multiple databases, then runs dump task"
+            depends="set-timezone">
+        <phingcall target="split-databases">
+            <param name="task.target" value="dump-database-loop"/>
+        </phingcall>
+    </target>
+
+    <target name="dump-database-loop" depends="set-timezone">
+
+        <exec executable="mysqldump" output="${dir.dumps}/dump-${db.name}-${DSTAMP}-${TSTAMP}.sql">
+            <arg value="--user=${db.username}"/>
+            <arg value="--password=${db.password}"/>
+            <arg value="--host=${db.server}"/>
+            <arg value="--port=${db.port}"/>
+            <arg value="-f"/>
+            <!-- Force dump so we don't get an error if the table doesn't exist -->
+            <arg value="${db.name}"/>
+        </exec>
+        <echo>Database Dumped: dump-${db.name}-${DSTAMP}-${TSTAMP}</echo>
+    </target>
+
+    <target name="create-database" description="Checks for multiple databases, then runs create task"
+            depends="set-timezone">
+        <phingcall target="split-databases">
+            <param name="task.target" value="create-database-loop"/>
+        </phingcall>
+    </target>
+
+    <target name="create-database-loop" depends="set-timezone">
+        <echo message="Creating database ${db.name}"/>
+<trycatch>
+        <try>
+            <pdosqlexec url="mysql:host=${db.server};port=${db.port};"
+                        userid="${db.username}"
+                        password="${db.password}">
+                CREATE DATABASE `${db.name}` DEFAULT CHARSET=utf8;
+                USE `${db.name}`;
+            </pdosqlexec>
+            <echo message="${db.name}"/>
+            <echo message="mysql:host=${db.server};port=${db.port};dbname=${db.name}"/>
+            <pdosqlexec url="mysql:host=${db.server};port=${db.port};dbname=${db.name}"
+                        userid="${db.username}"
+                        password="${db.password}">
+                <fileset dir="${dir.schema}">
+                    <include name="base_schema.sql"/>
+                </fileset>
+            </pdosqlexec>
+        </try>
+        <catch>
+            <echo message="Database ${db.name} already exists"/>
+        </catch>
+        </trycatch>
+    </target>
+
+
+    <target name="update-database" description="Checks for multiple databases, then runs upgrade script"
+            depends="set-timezone">
+        <phingcall target="split-databases">
+            <param name="task.target" value="update-database-loop"/>
+        </phingcall>
+    </target>
+
+    <target name="update-database-loop" description="generate a sql upgrade script" depends="dump-database">
+        <echo message="Updating database ${db.name}"/>
+
+        <dbdeploy url="mysql:host=${db.server};port=${db.port};dbname=${db.name}"
+                  userid="${db.username}"
+                  password="${db.password}"
+                  dir="${dir.migrations}"
+                  outputfile="${dir.buildfiles}/output.${db.name}.sql"
+                  undooutputfile="${dir.buildfiles}/undo.${db.name}.sql"
+                />
+
+        <pdosqlexec url="mysql:host=${db.server};port=${db.port};dbname=${db.name}"
+                    userid="${db.username}"
+                    password="${db.password}">
+            <fileset dir=".">
+                <include name="${dir.buildfiles}/output.${db.name}.sql"/>
+            </fileset>
+        </pdosqlexec>
+
+    </target>
+
+    <target name="drop-database" description="Checks for multiple databases, then runs drop script"
+            depends="set-timezone">
+        <phingcall target="split-databases">
+            <param name="task.target" value="drop-database-loop"/>
+        </phingcall>
+    </target>
+    <target name="drop-database-loop" depends="set-timezone, dump-database">
+        <echo message="Dropping database ${db.name}"/>
+        <pdosqlexec url="mysql:host=${db.server};port=${db.port};"
+                    userid="${db.username}"
+                    password="${db.password}">
+            DROP DATABASE IF EXISTS ${db.name};
+        </pdosqlexec>
+    </target>
+
+    <!-- Git targets -->
+
+    <target name="git-submodules"
+            description="Init and update all git submodules (WARNING: Will overwrite any local changes)"
+            depends="set-timezone, git-submodule-init, git-submodule-update"/>
+
+    <target name="git-submodule-init">
+        <exec command="git submodule update --init --recursive" checkreturn="true"/>
+    </target>
+
+    <target name="git-submodule-update">
+        <exec command="git submodule foreach 'git checkout master; git fetch --all; git reset --hard origin/master'"
+              checkreturn="true"/>
+    </target>
+
+    <!-- Cake console calls -->
+    <target name="aco_sync" description="Syncs the aco for each db using AclExtras plugin">
+        <phingcall target="split-databases">
+            <param name="task.target" value="aco_sync_loop"/>
+        </phingcall>
+    </target>
+    <target name="aco_sync_loop" description="">
+        <echo message="Syncing ACOs for ${db.name}"/>
+        <exec command="${cake.command} AclExtras.AclExtras aco_sync ${db.name}" logoutput="true" checkreturn="true"/>
+    </target>
+
+    <!-- Set up and remove individual property files -->
+    <!-- Not using this right now since I need to be able to send multiple parameters with foreach...possibly available
+         in phing 3.0 -->
+
+    <target name="writeConfigs">
+        <adhoc-task name="getDbConfigs" description="Build up db configs from Config/database.php "><![CDATA[
+        class getDbConfigsTask extends Task {
+            private $loc;
+            public function setLoc($loc) {
+                $this->loc=$loc;
+            }
+            public function main() {
+                include_once('Config/database.php');
+                $db = new DATABASE_CONFIG;
+                foreach($db->configs as $name=>$vals) {
+                    $vals['port']=empty($vals['port']) ? '3306' : $vals['port'];
+                    echo $name . "\n";
+                    $contents="db.name={$vals['database']}\n";
+                    $contents.="db.server={$vals['host']}\n";
+                    $contents.="db.port={$vals['port']}\n";
+                    $contents.="db.username={$vals['login']}\n";
+                    $contents.="db.password={$vals['password']}\n";
+                    file_put_contents($this->loc . "/".$name.".properties",$contents);
+                }
+            }
+        }
+
+
+    ]]></adhoc-task>
+        <getDbConfigs loc="${dir.buildfiles}"/>
+    </target>
+    <target name="removeConfigs">
+        <delete>
+            <fileset dir="${dir.buildfiles}">
+                <include name="*.properties"/>
+            </fileset>
+        </delete>
+    </target>
+
+
+</project>

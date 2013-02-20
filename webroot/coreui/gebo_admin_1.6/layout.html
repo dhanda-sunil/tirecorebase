@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TireCore</title>
+    
+        <!-- Bootstrap framework -->
+            <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <!-- gebo blue theme-->
+            <link rel="stylesheet" href="css/blue.css" id="link_theme" />
+        <!-- breadcrumbs-->
+            <link rel="stylesheet" href="lib/jBreadcrumbs/css/BreadCrumb.css" />
+        <!-- tooltips-->
+            <link rel="stylesheet" href="lib/qtip2/jquery.qtip.min.css" />
+        <!-- colorbox -->
+            <link rel="stylesheet" href="lib/colorbox/colorbox.css" />    
+        <!-- code prettify -->
+            <link rel="stylesheet" href="lib/google-code-prettify/prettify.css" />    
+        <!-- notifications -->
+            <link rel="stylesheet" href="lib/sticky/sticky.css" />    
+        <!-- splashy icons -->
+            <link rel="stylesheet" href="img/splashy/splashy.css" />
+		<!-- flags -->
+            <link rel="stylesheet" href="img/flags/flags.css" />	
+		<!-- calendar -->
+            <link rel="stylesheet" href="lib/fullcalendar/fullcalendar_gebo.css" />
+            
+        <!-- main styles -->
+            <link rel="stylesheet" href="css/style.css" />
+			
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans" />
+	
+        <!-- Favicon -->
+            <link rel="shortcut icon" href="favicon.ico" />
+		
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/ie.css" />
+            <script src="js/ie/html5.js"></script>
+			<script src="js/ie/respond.min.js"></script>
+			<script src="lib/flot/excanvas.min.js"></script>
+        <![endif]-->
+		
+		<script>
+			//* hide all elements & show preloader
+			document.documentElement.className += 'js';
+		</script>
+    </head>
+    <body class="sidebar_right">
+		<div id="loading_layer" style="display:none"><img src="img/ajax_loader.gif" alt="" /></div>
+		
+		<div id="maincontainer" class="clearfix">
+			<!-- header -->
+            <header>
+                <div class="navbar navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <div class="container-fluid">
+                            <a class="brand" href="/"><i class="icon-home icon-white"></i> [company/store]</a>
+
+                            <div class="pull-left" id="globalSearch">
+                                <form action="/" class="input-append" method="post" >
+                                    <input autocomplete="off" name="query" class="search_query input-medium" size="16" type="text" placeholder="Search..." /><button type="submit" class="btn" data-toggle="modal" data-backdrop="static" href="#searchResults"><i class="icon-search"></i></button>
+                                </form>
+                            </div>
+
+                            <ul class="nav user_menu pull-right">
+                                <li class="hidden-phone hidden-tablet">
+                                    <div class="nb_boxes clearfix">
+                                        <a data-toggle="modal" data-backdrop="static" href="#myNotifications" class="label ttip_b" title="New notifications">[x] <i class="splashy-warning"></i></a>
+                                        <a data-toggle="modal" data-backdrop="static" href="#myMail" class="label ttip_b" title="New messages">[x] <i class="splashy-mail_light"></i></a>
+                                        <a data-toggle="modal" data-backdrop="static" href="#myTasks" class="label ttip_b" title="New tasks">[x] <i class="splashy-calendar_week"></i></a>
+                                    </div>
+                                </li>
+								<li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle nav_condensed" data-toggle="dropdown"><i class="flag-us"></i> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:void(0)"><i class="flag-us"></i> English</a></li>
+                                        <li><a href="javascript:void(0)"><i class="flag-es"></i> Español</a></li>
+										<li><a href="javascript:void(0)"><i class="flag-fr"></i> Français</a></li>
+                                    </ul>
+                                </li>
+                                <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/user_avatar.png" alt="" class="user_avatar" /> [user name] <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+										<li><a href="/">Preferences</a></li>
+                                        <li><a href="/">Change Location</a></li>
+										<li class="divider"></li>
+										<li><a href="login.html">Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+							<ul class="nav" id="mobile-nav">
+								<li class="dropdown">
+									<a data-toggle="modal" data-backdrop="static"  href="#mainNavigation"><i class="icon-th icon-white"></i> Menu <b class="caret"></b></a>
+								</li>
+							</ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal modal-big hide fade" id="mainNavigation">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>Menu</h3>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="nav">
+                            <li class="span2">
+                                <div class="navbar navbar-inner">
+                                    <a class="brand" href="#" id="mainNavigationLabel">Favorites</a>
+                                </div>
+                                <ul class="nav nav-list">
+                                    <li><a href="#">Link to an action</a></li>
+                                    <li><a href="#">Link to an action</a></li>
+                                    <li><a href="#">Link to an action</a></li>
+                                    <li><a href="#">Link to an action</a></li>
+                                    <li><a href="#">Link to an action</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="dshb_icoNav" id="mainNavigationCurrent">
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/bar-chart.png)">Sales</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/container.png)">Purchasing</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/van.png)">Warehouse</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/reload.png)">Retread</a>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/dollar.png)">Accounting</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/tag.png)">Point of Sale</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/ID.png)">Customers</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/multi-agents.png)">Vendors</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/connected.png)">Items</a></li>
+                                    <li><a href="javascript:void(0)" style="background-image: url(img/gCons/configuration.png)">Tools</a></li>
+                                </ul>
+                            </li>
+                        </ul>                        
+
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+                <div class="modal modal-big hide fade" id="searchResults">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3><small>Search results for</small> [search term]</h3>
+                    </div>
+                    <div class="modal-body">
+                        <!-- example data -->
+                        <div class="row-fluid search_page">
+                            <div class="span12">
+                                <div class="well clearfix">
+                                    <div class="row-fluid">
+                                        <div class="pull-left">Showing 1 - 20 of 204 Results</div>
+                                        <div class="pull-right">
+                                            <span class="sepV_c">
+                                                Sort by:
+                                                <select>
+                                                    <option>Name</option>
+                                                    <option>Date</option>
+                                                    <option>Relevance</option>
+                                                </select>
+                                            </span>
+                                            <span class="sepV_c">
+                                                View:
+                                                <select>
+                                                    <option>12</option>
+                                                    <option>25</option>
+                                                    <option>50</option>
+                                                </select>
+                                            </span>
+                                            <span class="result_view">
+                                                <a href="javascript:void(0)" class="box_trgr sepV_b"><i class="icon-th-large"></i></a>
+                                                <a href="javascript:void(0)" class="list_trgr"><i class="icon-align-justify"></i></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search_panel clearfix">
+                                    <div class="search_item clearfix">
+                                        <span class="searchNb">1.</span>
+                                        <div class="thumbnail pull-left">
+                                            <img alt="" src="http://placehold.it/80x80/efefef">
+                                        </div>
+                                        <div class="search_content">
+                                            <h4>
+                                                <a href="javascript:void(0)" class="sepV_a">Lorem ipsum dolor sit amet</a>
+                                            </h4>
+                                            <p class="sepH_b item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod commodo adipiscing. Nunc lobortis mauris sit amet lectus vulputate vitae porta nulla vehicula. Curabitur in fermentum dui. Integer lobortis odio in quam faucibus ornare. Vivamus sed nulla suscipit tortor volutpat aliquam. Ut a lorem in felis faucibus tincidunt. Duis consectetur pulvinar lacus non pulvinar. Phasellus tempor nisi at sem commodo id vehicula nisl aliquam.</p>
+                                            <p class="sepH_a"><strong>Lorem ipsum:</strong> dolor sit amet</p>
+                                            <small>Tag 1</small>, <small>Tag 2</small>
+                                        </div>
+                                    </div>
+                                    <div class="search_item clearfix">
+                                        <span class="searchNb">2.</span>
+                                        <div class="thumbnail pull-left">
+                                            <img alt="" src="http://placehold.it/80x80/efefef">
+                                        </div>
+                                        <div class="search_content">
+                                            <h4>
+                                                <a href="javascript:void(0)" class="sepV_a">Lorem ipsum dolor sit amet</a>
+                                                <span class="label label-info">Lorem ipsum</span>
+                                            </h4>
+                                            <p class="sepH_b item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod commodo adipiscing. Nunc lobortis mauris sit amet lectus vulputate vitae porta nulla vehicula. Curabitur in fermentum dui. Integer lobortis odio in quam faucibus ornare. Vivamus sed nulla suscipit tortor volutpat aliquam. Ut a lorem in felis faucibus tincidunt. Duis consectetur pulvinar lacus non pulvinar. Phasellus tempor nisi at sem commodo id vehicula nisl aliquam.</p>
+                                            <p class="sepH_a"><strong>Lorem ipsum:</strong> dolor sit amet</p>
+                                            <small>Tag 1</small>, <small>Tag 2</small>
+                                        </div>
+                                    </div>
+                                    <div class="search_item clearfix">
+                                        <span class="searchNb">3.</span>
+                                        <div class="thumbnail pull-left">
+                                            <img alt="" src="http://placehold.it/80x80/efefef">
+                                        </div>
+                                        <div class="search_content">
+                                            <h4>
+                                                <a href="javascript:void(0)" class="sepV_a">Lorem ipsum dolor sit amet</a>
+                                                <span class="label label-important">Lorem ipsum</span>
+                                            </h4>
+                                            <p class="sepH_b item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod commodo adipiscing. Nunc lobortis mauris sit amet lectus vulputate vitae porta nulla vehicula. Curabitur in fermentum dui. Integer lobortis odio in quam faucibus ornare. Vivamus sed nulla suscipit tortor volutpat aliquam. Ut a lorem in felis faucibus tincidunt. Duis consectetur pulvinar lacus non pulvinar. Phasellus tempor nisi at sem commodo id vehicula nisl aliquam.</p>
+                                            <p class="sepH_a"><strong>Lorem ipsum:</strong> dolor sit amet</p>
+                                            <small>Tag 1</small>, <small>Tag 2</small>
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                            <div class="pagination">
+                                <ul>
+                                    <li><a href="#">Prev</a></li>
+                                    <li class="active">
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="disabled"><a href="#">...</a></li>
+                                    <li><a href="#">10</a></li>
+                                    <li><a href="#">Next</a></li>
+                                </ul>
+                            </div>                           
+                    </div>
+                </div>
+                <div class="modal hide fade" id="myNotifications">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>New Notifications</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-condensed table-striped" data-provides="rowlink">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Notification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- example data -->
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/" class="btn">Go to notifications</a>
+                    </div>
+                </div>
+                <div class="modal hide fade" id="myMail">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>New messages</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-condensed table-striped" data-provides="rowlink">
+                            <thead>
+                                <tr>
+                                    <th>Sender</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- example data -->
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/" class="btn">Go to messages</a>
+                    </div>
+                </div>
+                <div class="modal hide fade" id="myTasks">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>New Tasks</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-condensed table-striped" data-provides="rowlink">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Summary</th>
+                                    <th>Due</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- example data -->
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                                <tr>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                    <td>data here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/" class="btn">Go to calendar</a>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- main content -->
+            <div id="contentwrapper">
+                <div class="main_content">
+                    <nav>
+                        <div id="jCrumbs" class="breadCrumb module">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="icon-home"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Breadcrumb 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breadcrumb 2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breadcrumb 3</a>
+                                </li>
+                                <li>
+                                    Current page 
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    [content]
+                </div>
+            </div>
+            
+			<!-- sidebar -->
+            
+            <div class="sidebar">
+				
+                <div class="antiScroll">
+                    <div class="antiscroll-inner">
+                        <div class="antiscroll-content">
+                    
+                            <div class="sidebar_inner">
+
+                                <div id="side_heading">
+                                    <h4>Actions</h4>
+                                    <a href="javascript:void(0)" class="sidebar_switch on_switch ttip_r" title="Hide Sidebar">Sidebar switch</a>
+                                </div>
+                                <div id="side_accordion" class="accordion">
+                                    
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a href="#collapseOne" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
+                                                <i class="icon-folder-close"></i> Content
+                                            </a>
+                                        </div>
+                                        <div class="accordion-body collapse" id="collapseOne">
+                                            <div class="accordion-inner">
+                                                <ul class="nav nav-list">
+                                                    <li><a href="javascript:void(0)">Articles</a></li>
+                                                    <li><a href="javascript:void(0)">News</a></li>
+                                                    <li><a href="javascript:void(0)">Newsletters</a></li>
+                                                    <li><a href="javascript:void(0)">Comments</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a href="#collapseTwo" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
+                                                <i class="icon-th"></i> Modules
+                                            </a>
+                                        </div>
+                                        <div class="accordion-body collapse" id="collapseTwo">
+                                            <div class="accordion-inner">
+                                                <ul class="nav nav-list">
+                                                    <li><a href="javascript:void(0)">Content blocks</a></li>
+                                                    <li><a href="javascript:void(0)">Tags</a></li>
+                                                    <li><a href="javascript:void(0)">Blog</a></li>
+                                                    <li><a href="javascript:void(0)">FAQ</a></li>
+                                                    <li><a href="javascript:void(0)">Formbuilder</a></li>
+                                                    <li><a href="javascript:void(0)">Location</a></li>
+                                                    <li><a href="javascript:void(0)">Profiles</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a href="#collapseThree" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
+                                                <i class="icon-user"></i> Account manager
+                                            </a>
+                                        </div>
+                                        <div class="accordion-body collapse" id="collapseThree">
+                                            <div class="accordion-inner">
+                                                <ul class="nav nav-list">
+                                                    <li><a href="javascript:void(0)">Members</a></li>
+                                                    <li><a href="javascript:void(0)">Members groups</a></li>
+                                                    <li><a href="javascript:void(0)">Users</a></li>
+                                                    <li><a href="javascript:void(0)">Users groups</a></li>
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <a href="#collapseFour" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
+                                                <i class="icon-cog"></i> Configuration
+                                            </a>
+                                        </div>
+                                        <div class="accordion-body collapse" id="collapseFour">
+                                            <div class="accordion-inner">
+                                                <ul class="nav nav-list">
+                                                    <li class="nav-header">People</li>
+                                                    <li class="active"><a href="javascript:void(0)">Account Settings</a></li>
+                                                    <li><a href="javascript:void(0)">IP Adress Blocking</a></li>
+                                                    <li class="nav-header">System</li>
+                                                    <li><a href="javascript:void(0)">Site information</a></li>
+                                                    <li><a href="javascript:void(0)">Actions</a></li>
+                                                    <li><a href="javascript:void(0)">Cron</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="javascript:void(0)">Help</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="push"></div>
+                            </div>
+                               
+                            <div class="sidebar_info">
+                                <ul class="unstyled">
+                                    <li>
+                                        <span class="act act-warning">[x]</span>
+                                        <strong>Key metric warning</strong>
+                                    </li>
+                                    <li>
+                                        <span class="act act-success">[x]</span>
+                                        <strong>Key metric good</strong>
+                                    </li>
+                                    <li>
+                                        <span class="act act-danger">[x]</span>
+                                        <strong>Key metric bad</strong>
+                                    </li>
+                                </ul>
+                            </div> 
+                        
+                        </div>
+                    </div>
+                </div>
+			
+			</div>
+            
+            <script src="js/jquery.min.js"></script>
+			<!-- smart resize event -->
+			<script src="js/jquery.debouncedresize.min.js"></script>
+			<!-- hidden elements width/height -->
+			<script src="js/jquery.actual.min.js"></script>
+			<!-- js cookie plugin -->
+			<script src="js/jquery_cookie.min.js"></script>
+			<!-- main bootstrap js -->
+			<script src="bootstrap/js/bootstrap.min.js"></script>
+			<!-- bootstrap plugins -->
+			<script src="js/bootstrap.plugins.min.js"></script>
+			<!-- tooltips -->
+			<script src="lib/qtip2/jquery.qtip.min.js"></script>
+			<!-- jBreadcrumbs -->
+			<script src="lib/jBreadcrumbs/js/jquery.jBreadCrumb.1.1.min.js"></script>
+			<!-- lightbox -->
+            <script src="lib/colorbox/jquery.colorbox.min.js"></script>
+            <!-- fix for ios orientation change -->
+			<script src="js/ios-orientationchange-fix.js"></script>
+			<!-- scrollbar -->
+			<script src="lib/antiscroll/antiscroll.js"></script>
+			<script src="lib/antiscroll/jquery-mousewheel.js"></script>
+			<!-- to top -->
+			<script src="lib/UItoTop/jquery.ui.totop.min.js"></script>
+			<!-- mobile nav -->
+			<script src="js/selectNav.js"></script>
+			<!-- common functions -->
+            <!-- probably stuff in here that can be removed! -->
+			<script src="js/gebo_common.js"></script>
+			
+			<script src="lib/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
+            <!-- touch events for jquery ui-->
+            <script src="js/forms/jquery.ui.touch-punch.min.js"></script>
+            <!-- multi-column layout -->
+            <script src="js/jquery.imagesloaded.min.js"></script>
+            <script src="js/jquery.wookmark.js"></script>
+            <!-- responsive table -->
+            <script src="js/jquery.mediaTable.min.js"></script>
+            <!-- small charts -->
+            <script src="js/jquery.peity.min.js"></script>
+            <!-- charts -->
+            <script src="lib/flot/jquery.flot.min.js"></script>
+            <script src="lib/flot/jquery.flot.resize.min.js"></script>
+            <script src="lib/flot/jquery.flot.pie.min.js"></script>
+            <!-- calendar -->
+            <script src="lib/fullcalendar/fullcalendar.min.js"></script>
+            <!-- sortable/filterable list -->
+            <script src="lib/list_js/list.min.js"></script>
+            <script src="lib/list_js/plugins/paging/list.paging.js"></script>
+
+            <!-- stuff to pull out into system js -->
+            <script src="js/gebo_common.js"></script>
+            <script src="js/gebo_search.js"></script>
+    
+			<script>
+				$(document).ready(function() {
+					//* show all elements & remove preloader
+					setTimeout('$("html").removeClass("js")',1000);
+				});
+			</script>
+		
+		</div>
+	</body>
+</html>
