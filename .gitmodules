@@ -20,3 +20,7 @@
 [submodule "Plugin/acl"]
 	path = Plugin/acl
 	url = git://github.com/interlock/acl_plugin.git
+[submodule "webroot/js/tracekit"]
+	path = webroot/js/tracekit
+	url = git://github.com/Bancha/TraceKit.git
+    update = checkout
