@@ -11,16 +11,11 @@
  */
 /*jslint browser: true, vars: true, plusplus: true, white: true, sloppy: true */
 /*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false, strict:false */
-/*global Ext:false, jQuery:false, Bancha:false, WorkOrder:true, localActions:false, window:false */
+/*global Ext:false, jQuery:false, Bancha:false, ShopFloor:true, localActions:false, window:false */
 
 Ext.define('WorkOrder.view.LoginWindow', {
     extend: 'Ext.Panel',
     alias: 'widget.loginwindow',
-    requires: [
-        'Ext.form.Panel',
-        'Ext.form.FieldSet',
-        'Ext.field.Password'
-    ],
 
     config: {
         centered: true,

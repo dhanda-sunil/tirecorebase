@@ -292,6 +292,7 @@ Ext.define('ShopFloor.controller.AppController', {
 
         // load translations
         Bancha.Localizer.currentLang = userRecord.get('lang');
+        Ext.ux.Localizer.localize(Ext.Viewport, userRecord.get('lang'));
 
         // load the checkpoint name
         Bancha.getModel('Checkpoint').load(userRecord.get('shop_checkpoint_pref_id'), {

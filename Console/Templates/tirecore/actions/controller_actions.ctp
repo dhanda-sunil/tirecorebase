@@ -20,7 +20,25 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-
+/**
+ * Load the DataTable component if not loaded 
+ *
+ * @return void
+ */
+	public function beforeFilter(){
+		parent::beforeFilter();
+		if(!$this->DataTable){
+			$this->DataTable = $this->Components->load('DataTable');
+		}
+	}
+/**
+ * Load the sidebar menus 
+ *
+ * @return void
+ */
+	public function sidebar_action(){
+		
+	}
 /**
  * <?php echo $admin ?>index method
  *
@@ -44,8 +62,9 @@ foreach($fields as $field){
     $paginate[] = "'$currentModelName.$field'";
 }?>
             $this->paginate = array(
-                'fields' => array(<?php echo implode(',',$paginate);?>)
+                'fields' => array(<?php echo implode(',',$paginate);?>,'<?php echo $currentModelName.'.'.$primaryKey; ?> AS actionId')
             );
+			$this->DataTable->fields =  array(<?php echo implode(',',$paginate);?>,'<?php echo $currentModelName; ?>.actionId');
             $this->set('response', $this->DataTable->getResponse($this,$this-><?php echo $currentModelName ?>));
             $this->set('_serialize','response');
         }
@@ -235,24 +254,36 @@ foreach($fields as $field){
 				return $this-><?php echo $currentModelName; ?>->getLastSaveResult();
 			}
 
-<?php if ($wannaUseSession): ?>
+			<?php if ($wannaUseSession): ?>
 			$this->Session->setFlash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> deleted'));
-			$this->redirect(array('action' => 'index'));
-<?php else: ?>
+			if($this->RequestHandler->responseType() == 'json'){
+				$this->set('response', array('success' => 1, 'title' => '<?php echo ucfirst(strtolower($singularHumanName)); ?> deleted'));
+                $this->set('_serialize','response');	
+			}else{
+				$this->redirect(array('action' => 'index'));
+			}
+			<?php else: ?>
 			$this->flash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> deleted'), array('action' => 'index'));
-<?php endif; ?>
-		}
+			<?php endif; ?>
+		}else{
 
-		// provide a return value for Bancha requests
-		// never use SessionComponent::setFlash() or Controller::redirect() in Bancha requests
-		if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) {
-			return $this-><?php echo $currentModelName; ?>->getLastSaveResult();
+			// provide a return value for Bancha requests
+			// never use SessionComponent::setFlash() or Controller::redirect() in Bancha requests
+			if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) {
+				return $this-><?php echo $currentModelName; ?>->getLastSaveResult();
+			}
+	
+			<?php if ($wannaUseSession): ?>
+			$this->Session->setFlash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> was not deleted'));
+			if($this->RequestHandler->responseType() == 'json'){
+				$this->set('response', array('success' => 0, 'title' => 'Error in deleting <?php echo ucfirst(strtolower($singularHumanName)); ?>', 'errors' => $this-><?php echo $currentModelName; ?>->validationErrors));
+                $this->set('_serialize','response');	
+			}else{
+				$this->redirect(array('action' => 'index'));
+			}
+			<?php else: ?>
+			$this->flash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> was not deleted'), array('action' => 'index'));
+			<?php endif; ?>
+			
 		}
-
-<?php if ($wannaUseSession): ?>
-		$this->Session->setFlash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> was not deleted'));
-<?php else: ?>
-		$this->flash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> was not deleted'), array('action' => 'index'));
-<?php endif; ?>
-		$this->redirect(array('action' => 'index'));
 	}

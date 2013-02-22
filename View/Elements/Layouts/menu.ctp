@@ -29,6 +29,10 @@
                     <li><a control="users" style="background-image: url('/img/gCons/multi-agents.png')">Users</a></li>
                     <li><a control="retread_templates" style="background-image: url('/img/gCons/connected.png')">Preferences</a></li>
                     <li><a control="batches" style="background-image: url('img/gCons/configuration.png')">Tools</a></li>
+					 <li><a control="treaddesigns" style="background-image: url('img/gCons/configuration.png')">TreadDesigns</a></li> 
+					 <li><a control="w_wabcs" style="background-image: url('img/gCons/configuration.png')">WWabcs</a></li>
+					 <li><a control="t_designs" style="background-image: url('img/gCons/configuration.png')">T Designs</a></li>
+					 <li><a control="w_www9s" style="background-image: url('img/gCons/configuration.png')">WWww9w</a></li>
                 </ul>
             </li>
         </ul>                        

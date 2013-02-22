@@ -325,7 +325,8 @@
             </div>
             
 			<!-- SIDEBAR ACTIONS -->
-            <? $actions = $this->Element(Inflector::pluralize(Inflector::classify($this->request->params['controller'])).'/actions'); ?>
+            <? 
+			$actions = $this->Element('../'.Inflector::pluralize(Inflector::classify($this->request->params['controller'])).'/sidebar_action'); ?>
             <? if(!preg_match('/Element Not Found:/',$actions)): ?>
                 <a href="javascript:void(0)" class="sidebar_switch on_switch ttip_r" title="Hide Sidebar">Sidebar switch</a>
                 <div class="sidebar">

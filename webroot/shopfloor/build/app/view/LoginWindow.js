@@ -16,12 +16,6 @@
 Ext.define('ShopFloor.view.LoginWindow', {
     extend: 'Ext.Panel',
     alias: 'widget.loginwindow',
-    
-    requires: [
-        'Ext.form.Panel',
-        'Ext.form.FieldSet',
-        'Ext.field.Password'
-    ],
 
     config: {
         centered: true,

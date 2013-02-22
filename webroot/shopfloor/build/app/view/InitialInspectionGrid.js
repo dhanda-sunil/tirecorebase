@@ -16,13 +16,6 @@
 Ext.define('ShopFloor.view.InitialInspectionGrid', {
     extend: 'Ext.Container',
     alias: 'widget.inspectiongrid',
-
-    requires: [
-        'Ext.form.Panel',
-        'Ext.form.FieldSet',
-        'ShopFloor.field.NumberSplit'
-    ],
-
     config: {
         layout:'vbox',
         height:196,

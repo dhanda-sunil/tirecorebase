@@ -70,8 +70,7 @@ var FixedHeader = function ( mTable, oInit ) {
 		},
 		"nTable": null,
 		"bUseAbsPos": false,
-		"bFooter": false,
-        "sParentNode": 'body'
+		"bFooter": false
 	};
 	
 	/*
@@ -322,12 +321,7 @@ FixedHeader.prototype = {
 		
 		/* Insert the newly cloned table into the DOM, on top of the "real" header */
 		nDiv.appendChild( nCTable );
-        if(s.sParentNode != 'body'){
-            $(s.sParentNode).appendChild(nDiv);
-        }
-        else{
-            document.body.appendChild(nDiv)
-        }
+		document.body.appendChild( nDiv );
 		
 		return {
 			"nNode": nCTable,

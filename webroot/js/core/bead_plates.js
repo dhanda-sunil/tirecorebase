@@ -68,7 +68,6 @@ $(function() {
             $('#page-container .save-record').unbind().click(function(){
                 var record = coreTools.getData($('#page-container'));
                 me.save(record, function(response){
-                    coreTools.response(response);
                     if(response.success == '1'){
                         me.index();
                     }

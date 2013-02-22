@@ -5,21 +5,6 @@
     .jedit td:hover{
         border:1px solid blue !important; 
     }
-/*    .dirtyField{
-        margin-top: -1px;
-        position: relative;
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        line-height: 16px;
-        vertical-align: text-top;
-        background-image: url("/img/splashy/splashy.png");
-        background-repeat: no-repeat;
-        background-position: -42px -1671px;
-    }*/
-.dirtyField{
-    background: url('/img/dirty-record.png') no-repeat right center;
-}
 </style>
 <div class="heading clearfix">
     <h3 class="pull-left" id="customer-title">Customers</h3>
@@ -39,7 +24,8 @@
                     <th>Fax</th>
                     <th>Website</th>
                     <th>Tax Number</th>
-                    <th style="display:none">ID</th>
+                    <th>ID</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -72,8 +58,8 @@
             <p class="f_legend">Customer Information</p>
             <div class="span5">
                 <div class="control-group">
-                    <label><label  for="Customer-company_name"></label>Company <span class="f_req">*</span></label>
-                    <input type="text" name="data[Customer][company_name]" id="Customer-company_name" />
+                    <label>Company <span class="f_req">*</span></label>
+                    <input type="text" name="data[Customer][company_name]" />
                 </div>
                 <div class="control-group">
                     <label>Phone</label>

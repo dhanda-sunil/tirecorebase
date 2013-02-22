@@ -32,8 +32,9 @@ class UserGroupsController extends AppController {
         }
         elseif($this->RequestHandler->responseType() == 'json'){
             $this->paginate = array(
-                'fields' => array('UserGroup.name','UserGroup.id'),
+                'fields' => array('UserGroup.id','UserGroup.name'),
             );
+            $this->DataTable->emptyElements = 1;
             $this->set('groups', $this->DataTable->getResponse($this,$this->UserGroup));
             $this->set('_serialize','groups');
         }

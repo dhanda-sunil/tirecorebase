@@ -5,13 +5,15 @@
 		<link rel="shortcut icon" type="image/ico" href="http://www.sprymedia.co.uk/media/images/favicon.ico">
 		
 		<title>TableTools example</title>
+		
 		<style type="text/css" title="currentStyle">
-			@import "../../media/css/demo_page.css";
-			@import "../../media/css/demo_table.css";
+			@import "../../css/demo_page.css";
+			@import "../../css/demo_table.css";
 			@import "media/css/TableTools.css";
 		</style>
-		<script type="text/javascript" charset="utf-8" src="../../media/js/jquery.js"></script>
-		<script type="text/javascript" charset="utf-8" src="../../media/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../../../jquery-ui-1.9.1.custom/js/jquery-1.8.2.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../js/jquery.dataTables.min.js"></script>
+		
 		<script type="text/javascript" charset="utf-8" src="media/js/ZeroClipboard.js"></script>
 		<script type="text/javascript" charset="utf-8" src="media/js/TableTools.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -19,17 +21,23 @@
 				$('#example').dataTable( {
 					"sDom": 'T<"clear">lfrtip',
 					"oTableTools": {
-						"aButtons": [
-							"copy",
-							"csv",
-							"xls",
-							{
-								"sExtends": "pdf",
-								"sPdfOrientation": "landscape",
-								"sPdfMessage": "Your custom message would go here."
-							},
-							"print"
-						]
+						 "oTableTools": {
+							"sSwfPath": "http://localhost/tirecore/dd/app/webroot/lib/datatables/extras/TableTools/media/swf/copy_csv_xls_pdf.swf",
+							"aButtons": [
+								{
+									"sExtends": 'copy'
+								},
+								{
+									"sExtends": 'print'
+								},
+								{
+									"sExtends": 'xls'
+								},
+								{
+									"sExtends": 'pdf'
+								}
+							]
+						},
 					}
 				} );
 			} );

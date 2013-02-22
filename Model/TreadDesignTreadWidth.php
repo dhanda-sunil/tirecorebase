@@ -11,7 +11,7 @@ class TreadDesignTreadWidth extends AppModel
 
 	public $actsAs = array('Bancha.BanchaRemotable');
 
-	public $belongsTo = array(
+	public $belongsTo1 = array(
 		'TreadDesign' => array(
 			'className'  => 'TreadDesign',
 			'foreignKey' => 'tread_design_id',

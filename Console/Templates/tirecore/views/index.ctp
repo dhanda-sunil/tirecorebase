@@ -16,6 +16,25 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
+<?php
+	if(!function_exists('buildMColumns')){
+		function buildMColumns($fields){
+			$nums = array();
+			for($i=0; $i<count($fields); $i++){
+				$nums[] = $i;
+			}
+			return $nums;
+		}
+		function buildAOColumns($fields){
+			$nums = array();
+			for($i=0; $i<count($fields); $i++){
+				$nums[] = 'null';
+			}
+			$nums[] = '{bSortable: false}';
+			return $nums;
+		}
+	}
+?>
 <!-- THIS TEMPLATE IS BAKED! -->
 <div class="heading clearfix">
     <h3 class="pull-left"><span id="page-title"><?php echo $pluralHumanName; ?></span> <span id="page-sub-title"></span></h3>
@@ -25,8 +44,9 @@
     <thead>
     <tr>
 <?php  foreach ($fields as $field): ?>
-        <th><?php echo ucwords($field) ?></th>
+        <th><?php echo Inflector::humanize($field) ?></th>
 <?php endforeach; ?>
+		<th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -48,6 +68,16 @@
     </div>
 </div>
 
+<div id="page-message" class="modal modal-big hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3 id="modal-title"></h3>
+    </div>
+    <div class="modal-body"></div>
+    <div class="modal-footer">
+        
+    </div>
+</div>
 <!-- RECORD TEMPLATE -->
 <script type="text/template" id="page-record-template">
 <div class="row-fluid">
@@ -60,6 +90,13 @@
 		foreach ($fields as $field) {
 			if (strpos($action, 'add') !== false && $field == $primaryKey) {
 				continue;
+			} elseif (!in_array($field, array('created', 'modified', 'updated')) && $field == $primaryKey) {
+                echo "\t\t\t".'<div class="control-group" isPrimaryKey>'."\n";
+                echo "\t\t\t\t".'<label class="control-label">'.ucwords($field).' <span class="f_req">*</span></label>'."\n";
+                echo "\t\t\t\t".'<div class="controls">'."\n";
+                echo "\t\t\t\t\t".'<input type="text" readonly name="data['.$modelClass.']['.$field.']" />'."\n";
+                echo "\t\t\t\t".'</div>'."\n";
+                echo "\t\t\t</div>\n";
 			} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
                 echo "\t\t\t".'<div class="control-group">'."\n";
                 echo "\t\t\t\t".'<label class="control-label">'.ucwords($field).' <span class="f_req">*</span></label>'."\n";
@@ -88,135 +125,4 @@
     <input type="button" class="btn btn-inverse save-record" name="save" value="Save changes" />
     <input type="button" class="btn close-record" name="cancel" value="Close" />
 </div>
-</script>
-<?php $urlname = strtolower(preg_replace('/\s/','_',$pluralHumanName)); ?>
-<script>
-/**
- * THIS SHOULD BE MOVED INTO ITS OWN JAVASCRIPT FILE
- */
-$(function() {
-    
-    <?php echo $modelClass ?> = {
-        id: 0,
-        init: function(){
-            var me = this;
-            //@todo this should probably not be tied to the DOM
-            if($('#page-title').text() != '<?php echo $pluralHumanName; ?>'){
-                $.get('/<?php echo $urlname; ?>/index',function(response){
-                    $('#main-content').html(response);
-                    coreTools.addStyle('lib/datatables/css/jquery.dataTables.css');
-                    coreTools.addStyle('lib/datatables/extras/TableTools/media/css/TableTools.css');
-
-                    $LAB
-                    .script('/lib/datatables/js/jquery.dataTables.min.js').wait()
-                    .script('/lib/datatables/extras/TableTools/media/js/TableTools.min.js').wait()
-                    .script('/lib/datatables/extras/ColVis/media/js/ColVis.min.js')
-                    .script('/lib/datatables/extras/ColReorder/media/js/ColReorder.min.js').wait(function(){
-                        me.index();
-                    });
-                })
-            }
-            else{
-                this.index();
-            }
-        }
-        ,index: function(){
-            
-            this.clear();
-            $('#page-table').show();
-            
-            // init dataTables
-            $('#page-table').dataTable({
-                "iDisplayLength": 100,
-                "bProcessing": true,
-                "bServerSide": true,
-                "sAjaxSource": "/<?php echo $urlname; ?>/index.json",
-                "sDom": 'RTfrtip',
-                "oTableTools": {
-                    "sSwfPath": "/lib/datatables/extras/TableTools/media/swf/copy_csv_xls_pdf.swf"
-                }
-            });
-        }
-        ,add: function(){
-            this.id = 0;
-            var me = this;
-            this.clear();
-            
-            // change title
-            $('#page-sub-title').html('<br/>Add New <?php echo $singularHumanName; ?>');
-            // clone template
-            var form = $('#page-record-template').clone();
-            
-            $('#page-container').html($(form).html()).show();
-            
-            // save
-            $('#page-container .save-record').unbind().click(function(){
-                var record = coreTools.getData($('#page-container'));
-                me.save(record, function(response){
-                    coreTools.response(response);
-                    if(response.success == '1'){
-                        me.index();
-                    }
-                })
-            })
-            // cancel
-            $('#page-container [name="cancel"]').unbind().click(function(){
-                me.index();
-            })
-        }
-        ,view: function(id){
-            this.id = id;
-            var me = this;
-            
-            $.get('/<?php echo $urlname; ?>/view/'+id+'.json',function(record){
-                
-                var form = $('#page-record-template').clone();
-                $('#page-modal #modal-title').text('Edit');
-                $('#page-modal .modal-body').html($(form).html()).show();
-                $('#page-modal').modal();
-                $('#page-modal .control-buttons').hide();
-                
-                coreTools.renderRecord($('#page-modal .modal-body'),record);
-                
-                // save
-                $('#page-modal [name="save"]').click(function(){
-                    var record = coreTools.getData($('#page-modal'));
-                    me.save(record, function(response){
-                        coreTools.response(response);
-                        if(response.success == '1'){
-                            me.index();
-                            $('#page-modal').modal('hide');
-                        }
-                    })
-                })
-                // cancel
-                $('#page-modal [name="cancel"]').click(function(){
-                    $('#page-modal').modal('hide');
-                })
-            })
-        }
-        ,clear: function(){
-            $('.dataTable').each(function(){
-                $(this).dataTable().fnDestroy();
-            })
-            $('.dataTable').hide();
-            $('#page-container').empty();
-        }
-        ,save: function(data,callback){
-            var me = this;
-            var action = (this.id > 0) ?  'edit/'+this.id:'add/';
-            
-            $.ajax({
-                type: 'POST',
-                url: '/<?php echo $urlname; ?>/'+action+'.json',
-                data: data,
-                success: function(data){
-                    if(callback != undefined){
-                        callback(data);
-                    }
-                }
-            });
-        }
-    }
-})
 </script>

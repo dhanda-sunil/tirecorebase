@@ -15,12 +15,13 @@
             <table id="page-table" class="table table-bordered table-striped table_vam">
                 <thead>
                 <tr>
-                    <th>Username</th>
+                    <th></th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Username</th>
                     <th>Group</th>
                     <th>Location</th>
-                    <th style="display:none">ID</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,15 +41,15 @@
         <fieldset>
         <p class="f_legend">User Information</p>
         <div class="span12">
-            <label>First Name <span class="f_req">*</span></label>
+            <label>First Name</label>
             <input type="text" name="data[User][first_name]" />
         </div>
         <div class="span12">
-            <label>Last Name <span class="f_req">*</span></label>
+            <label>Last Name</label>
             <input type="text" name="data[User][last_name]" />
         </div>
         <div class="span12">
-            <label>Username <span class="f_req">*</span></label>
+            <label>Username</label>
             <input type="text" name="data[User][username]" />
         </div>
         <div class="span12">
@@ -88,7 +89,7 @@
             <input type="checkbox" name="data[User][active]" value="1" /> Yes
         </div>
         <div class="span12">
-            <label>Password <span class="f_req">*</span></label>
+            <label>Password</label>
             <input type="password" name="data[User][password]" />
         </div>
         </fieldset>

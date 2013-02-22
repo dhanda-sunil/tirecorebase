@@ -45,8 +45,13 @@ $(function() {
                 ,"bServerSide": true
                 ,"sAjaxSource": "/user_groups/index.json"
                 ,"sDom": 'Rfrtip'
+                ,"aoColumns":[
+                    null,
+                    null,
+                    {bSortable: false}
+                ]
                 ,"fnCreatedRow": function(nRow, aData, iDataIndex){
-                    $('td:eq(0)', nRow).html('<a href="javascript:UserGroup.view('+aData[1]+')">'+aData[0]+'</a>');
+                    $('td:eq(2)', nRow).html('<i class="icon-edit" style="cursor:pointer" onclick="UserGroup.view('+aData[0]+')"></i>');
                 }
             });
         }

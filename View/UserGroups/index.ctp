@@ -10,8 +10,9 @@
             <table id="page-table" class="table table-bordered table-striped table_vam">
                 <thead>
                 <tr>
-                    <th>Group</th>
                     <th>ID</th>
+                    <th>Group</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>

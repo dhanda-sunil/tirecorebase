@@ -8,15 +8,16 @@
     <title>TreadTracks WorkOrder</title>
     <script src="http://extjs.cachefly.net/touch/sencha-touch-2.1.0/sencha-touch-all-debug.js"></script>
     <link rel="stylesheet" href="http://extjs.cachefly.net/touch/sencha-touch-2.1.0/resources/css/sencha-touch.css">
-    <link rel="stylesheet" href="resources/css/layout.css">
+    <link rel="stylesheet" href="custom/custom.css">
     <link rel="stylesheet" href="plugins/Ext.ux.touch.grid/resources/css/Ext.ux.grid.View.css">
-    <script src="app/SenchaFixes.js"></script>
-    <script src="app/field/override/Select.js"></script>
-    <script src="app/ErrorHandler.js"></script>
+    <script src="custom/sencha-fixes.js"></script>
+    <script src="custom/field/override/Select.js"></script>
+    <script src="custom/error-handling.js"></script>
     <script src="/Bancha/js/Bancha.js"></script>
-    <script src="/bancha-api/models/all.js"></script>
-    <script src="app/controller/mixin/RecordController.js"></script>
-    <script src="app/controller/mixin/ViewController.js"></script>
+    <script src="/bancha-api/models/all.js" id="Bancha Remote API (if included as Direct.API Sencha Architect caches it, we don't want to have that)"></script>
+    <script src="custom/controller/mixin/RecordController.js"></script>
+    <script src="custom/controller/mixin/ViewController.js"></script>
+    <script src="plugins/localizer/app/lib/Localizer.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript">
         if (!Ext.browser.is.WebKit) {

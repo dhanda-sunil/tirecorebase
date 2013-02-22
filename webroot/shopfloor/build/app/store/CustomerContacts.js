@@ -16,11 +16,6 @@
 Ext.define('ShopFloor.store.CustomerContacts', {
     extend: 'Ext.data.Store',
 
-    requires: [
-        'Bancha.Main',
-        'Bancha.REMOTE_API'
-    ],
-
     config: {
         model: Bancha.getModel('Contact'),
         autoLoad: false,

@@ -11,13 +11,13 @@
  */
 /*jslint browser: true, vars: true, plusplus: true, white: true, sloppy: true */
 /*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false, strict:false */
-/*global Ext:false, jQuery:false, Bancha:false, WorkOrder:true, localActions:false, window:false */
+/*global Ext:false, jQuery:false, Bancha:false, ShopFloor:true, localActions:false, window:false */
 
 Ext.define('WorkOrder.controller.AppController', {
     extend: 'Ext.app.Controller',
 
     mixins: {
-        viewController: 'WorkOrder.controller.mixin.ViewController',
+        viewController: 'ShopFloor.controller.mixin.ViewController',
         convenience: 'WorkOrder.controller.mixin.Convenience'
     },
 
@@ -79,6 +79,7 @@ Ext.define('WorkOrder.controller.AppController', {
     onLoggedIn: function(userRecord) {
         // load translations
         Bancha.Localizer.currentLang = userRecord.get('lang');
+        Ext.ux.Localizer.localize(Ext.Viewport, userRecord.get('lang'));
 
         // load the main view (we have to wait till here to be able to render in the correct language)
         Ext.Viewport.add(this.createPanel('widget.main'));

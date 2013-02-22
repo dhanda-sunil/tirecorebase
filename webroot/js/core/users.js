@@ -53,18 +53,19 @@ $(function() {
                     "sSwfPath": "/lib/datatables/extras/TableTools/media/swf/copy_csv_xls_pdf.swf"
                 }
                 ,"oColVis": {
-                    "aiExclude": [0,5]
+                    "aiExclude": [0,6]
                 }
                 ,"aoColumns":[
+                    {bVisible: false},
                     null,
                     null,
                     null,
                     null,
                     null,
-                    {bSortable: false,bVisible: false}
+                    {bSortable: false}
                 ]
                 ,"fnCreatedRow": function(nRow, aData, iDataIndex){
-                    $('td:eq(0)', nRow).html('<a href="javascript:User.view('+aData[5]+')">'+aData[0]+'</a>');
+                    $('td:eq(5)', nRow).html('<i class="icon-edit" style="cursor:pointer" onclick="User.view('+aData[0]+')"></i>');
                 }
             });
         }
@@ -86,16 +87,6 @@ $(function() {
             var template = $('#page-record-template').clone();
             $(content).show();
             $(content).html( $(template).html() );
-            
-            // auto-generate username
-            $(content).find('[name="data[User][username]"]').unbind().focus(function(){
-                if($(this).val() == ''){
-                    var first = $(content).find('[name="data[User][first_name]"]').val().substr(0, 1);
-                    var last = $(content).find('[name="data[User][last_name]"]').val().substr(0, 4);
-                    var username = (first+last).toLowerCase()
-                    $(this).val(username);
-                }
-            })
             
             // autoset to active
             $(content).find('[name="data[User][active]"]').attr('checked','checked');

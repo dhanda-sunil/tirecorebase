@@ -16,11 +16,6 @@
 Ext.define('ShopFloor.store.BuffSpecs', {
     extend: 'Ext.data.Store',
 
-    requires: [
-        'Bancha.Main',
-        'Bancha.REMOTE_API'
-    ],
-    
     config: {
         model: Bancha.getModel('BuffSpec'),
         autoLoad: false,

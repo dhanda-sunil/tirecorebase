@@ -20,10 +20,10 @@ $(function() {
             $LAB
             .script('/lib/datatables/js/jquery.dataTables.min.js').wait()
             .script('/lib/jquery.inputmask.min.js')
-            .script('/lib/jquery.dirtyFields.packed.js')
+            //.script('/lib/jeditable/jquery.jeditable.min.js').wait()
+            .script('/lib/datatables/extras/ColVis/media/js/ColVis.min.js')
             .script('/lib/datepicker/bootstrap-datepicker.min.js')
             .script('/lib/datatables/extras/TableTools/media/js/TableTools.min.js').wait()
-            .script('/lib/datatables/extras/FixedHeader/js/FixedHeader.js').wait()
             .script('/lib/datatables/extras/ColReorder/media/js/ColReorder.min.js').wait(function(){
                 me.index();
             });
@@ -45,7 +45,7 @@ $(function() {
                 return; 
             }
             // init dataTables
-            var oTable = $('#customers-table').dataTable({
+            $('#customers-table').dataTable({
                 "iDisplayLength": 100,
                 "bProcessing": true,
                 "bServerSide": true,
@@ -53,7 +53,7 @@ $(function() {
                 "sAjaxSource": "/customers/index.json",
                 "sDom": 'CRTfrtip',
                 "oColVis": {
-                    "aiExclude": [0,5]
+                    "aiExclude": [5,6]
                 },
                 "oTableTools": {
                     "sSwfPath": "/lib/datatables/extras/TableTools/media/swf/copy_csv_xls_pdf.swf",
@@ -78,14 +78,15 @@ $(function() {
                 },
                 "aoColumns":[
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    {bSortable: false},
+                    {bSortable: false},
+                    {bSortable: false},
+                    {bSortable: false},
                     {bVisible: false,bSortable: false},
+                    {bSortable: false},
                 ],
                 "fnCreatedRow": function(nRow, aData, iDataIndex){
-                    $('td:eq(0)', nRow).html('<a href="javascript:Customers.view('+aData[5]+')">'+aData[0]+'</a>');
+                    $('td:eq(5)', nRow).html('<i class="icon-edit" style="cursor:pointer" onclick="Customers.view('+aData[5]+')"></i>');
                 },
                 "fnStateSave": function (oSettings, oData) {
                     
@@ -99,16 +100,12 @@ $(function() {
                 },
                 "fnStateLoad": function (oSettings) {
                     o = coreTools.getDataTableSettings('Customers', 'index.datatable');
+                    console.log(o,'come on!');
                     if(o != false){
                         return o;
                     }
                 }
             });
-//            
-//            new FixedHeader( oTable, {
-//                "offsetTop": 40,
-//                "sParentNode": '#main-content'
-//            } );
         }
 /**
  * removes a tab and unloads tables in customer view
@@ -237,20 +234,6 @@ $(function() {
                         }
                     })
                 })
-                
-                $(content).dirtyFields({
-                    denoteDirtyForm: true,
-                    denoteDirtyOptions: true,
-                    trimText:true,
-                    formChangeCallback: function(isDirty,elements) {
-                        $(content).find('input').removeClass('dirtyField')
-                        if(isDirty === true){
-                            $.each(elements,function(key,value){
-                                $(content).find('[name="'+value+'"]').addClass('dirtyField');
-                            })
-                        }
-                    }
-                });
             });
             
             this.getContacts();

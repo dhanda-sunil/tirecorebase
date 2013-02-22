@@ -509,15 +509,6 @@
 		.dataTables_wrapper .dt_actions {float:left;margin-right:20px}
 		.dataTables_empty {cursor:default}
 		.dTableR {width:100% !important}
-table.dataTable tr.odd:hover td { background-color: #EFF6FA; }
-table.dataTable tr.even:hover td { background-color: #EFF6FA; }
-
-table.dataTable tr.odd:hover td.sorting_1 { background-color: #EFF6FA; }
-table.dataTable tr.odd:hover td.sorting_2 { background-color: #EFF6FA; }
-table.dataTable tr.odd:hover td.sorting_3 { background-color: #EFF6FA; }
-table.dataTable tr.even:hover td.sorting_1 { background-color: #EFF6FA; }
-table.dataTable tr.even:hover td.sorting_2 { background-color: #EFF6FA; }
-table.dataTable tr.even:hover td.sorting_3 { background-color: #EFF6FA; }
 
 	/* floating header list */
 		.-list-container {height:400px}

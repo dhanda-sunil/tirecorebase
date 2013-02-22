@@ -13,21 +13,12 @@
 /*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false, strict:false */
 /*global Ext:false, Bancha:false, ShopFloor:true, localActions:false, window:false */
 
+
 Ext.Loader.setConfig({
-    enabled: true,
-    paths: {
-        'Bancha.Main': '/Bancha/js/Bancha-dev.js', 
-        'Bancha.REMOTE_API': '/bancha-api-class/models/all.js' // this will only be used in the debug version, the production version will be shipped packaged version
-    }
+    enabled: true
 });
 
 Ext.application({
-    requires: [
-        'Bancha.Main',
-        'Bancha.REMOTE_API',
-        'ShopFloor.ErrorHandler',
-        'ShopFloor.field.override.Select'
-    ],
     stores: [
         'RepairEstimates',
         'RepairTypes',
@@ -48,6 +39,7 @@ Ext.application({
         'MainLeftEditPanel',
         'TireFailScreen',
         'FailReadonButton',
+        'ComponentListView',
         'DotSerialField',
         'DotTextField',
         'RepairCheckpointPanel',

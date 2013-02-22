@@ -45,6 +45,7 @@ class CustomersController extends AppController
                 ),
                 'contain'    => array()
             );
+            $this->DataTable->emptyElements = 1;
             $this->set('customers', $this->DataTable->getResponse($this, $this->Customer));
             $this->set('_serialize', 'customers');
         } else {

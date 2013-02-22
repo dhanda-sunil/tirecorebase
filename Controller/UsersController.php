@@ -34,7 +34,7 @@ class UsersController extends AppController {
         }
         elseif($this->RequestHandler->responseType() == 'json'){
             $this->paginate = array(
-                'fields' => array('User.username', 'User.first_name', 'User.last_name', 'UserGroup.name','Location.name','User.id'),
+                'fields' => array('User.id','User.first_name', 'User.last_name', 'User.username', 'UserGroup.name','Location.name'),
                 'conditions' => array(
                     'active'=>1
                 ),

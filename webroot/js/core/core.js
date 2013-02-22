@@ -57,9 +57,6 @@ $(function(){
                         callback = function(){Customers.init()}
                         break;
                     case 'users':
-                        me.loadSideMenu(control);
-                        control = false;
-                        $('#mainNavigation').modal('hide');
                         $LAB
                         .script('/js/core/users.js').wait(function(){
                             User.init();
@@ -77,7 +74,7 @@ $(function(){
                     me.loadControl(control,callback);
                     return true;
                 }
-                else if(control!= false){
+                if(control!= false){
                     me.loadControl(control);
                 }
             })
@@ -96,10 +93,15 @@ $(function(){
             // get controller
             $.get('/'+control,function(response){
                 $('#main-content').html(response);
+				
+				var controlClass = me.camelCase(control);
+				if(window[controlClass] && window[controlClass].onLoad){
+					window[controlClass].onLoad();
+				}
                 if(callback != undefined){
                     callback();
                 }
-            });
+            }); 
             // load side menu
             this.loadSideMenu(control);
             // load controls script
@@ -111,6 +113,10 @@ $(function(){
                 
             }
         },
+		camelCase:function(str){
+			str 	= $.camelCase(str.replace(/[_ ]/g, '-')).replace(/-/g, '');
+			return  str.substring(0,1).toUpperCase()+str.substring(1);
+		},
         loadSideMenu: function(control){
             var me = this;
             // empty sidebar
@@ -214,7 +220,7 @@ $(function(){
                         var str = '';
                         if(r.json.errors){
                             $.each(r.json.errors,function(k,v){
-                                str+= '<p><i class="splashy-error_small"></i> '+v+'</p>';
+                                str+= v+'<br/>';
                             })
                         }
                         if(r.json.title){ 
@@ -248,7 +254,7 @@ $(function(){
         return r;
     }
     CoreTools.prototype.response= function(data){
-        var me = this;
+        
         if(data != undefined && data != null && data != '' && typeof(data) == 'object'){
 
             if(data.success == '1'){
@@ -266,22 +272,20 @@ $(function(){
                     $.each(data.errors,function(k,v){
                         if(typeof(v) == 'object'){
                             $.each(v,function(k2,v2){
-                                me.notification('error',data.title,v2);
+                                str+= '<p>'+v2+' </p>';
                             })
                         }
                         else{
-                            me.notification('error',data.title,v);
+                            str+= '<p>'+v+'</p>';
                         }
                         
                     })
                 }
+                if(data.title){ 
+                    this.notification('error',data.title,str);
+                }
                 else{
-                    if(data.title){ 
-                        this.notification('error',data.title,str);
-                    }
-                    else{
-                        this.notification('error','Error Encountered',str);
-                    }
+                    this.notification('error','Error Encountered',str);
                 }
             }
         }
@@ -394,8 +398,7 @@ $(function(){
  * @param message (String)
  */
     CoreTools.prototype.notification = function(type,title,message){
-        console.log(message);
-        $.sticky(title+'<br/><span style="font-weight:normal !important;">'+( (message) == undefined ? '':message)+'</span>', 
+        $.sticky(title+"<br/>"+( (message) == undefined ? '':message), 
             {
                 autoclose : 5000, 
                 position: "top-right", 

@@ -519,8 +519,8 @@ ColVis.prototype = {
 			nButton = document.createElement('button'),
 			nSpan = document.createElement('span');
 		
-		nButton.className = !this.s.dt.bJUI ? "ColVis_Button TableTools_Button" :
-			"ColVis_Button TableTools_Button ui-button ui-state-default";
+		nButton.className = !this.s.dt.bJUI ? "ColVis_Button TableTools_Button btn" :
+			"ColVis_Button TableTools_Button ui-button ui-state-default btn";
 		nButton.appendChild( nSpan );
 		$(nSpan).html( '<span class="ColVis_title">'+this.s.sRestore+'</span>' );
 		
@@ -551,8 +551,8 @@ ColVis.prototype = {
 			nButton = document.createElement('button'),
 			nSpan = document.createElement('span');
 		
-		nButton.className = !this.s.dt.bJUI ? "ColVis_Button TableTools_Button" :
-			"ColVis_Button TableTools_Button ui-button ui-state-default";
+		nButton.className = !this.s.dt.bJUI ? "ColVis_Button TableTools_Button btn" :
+			"ColVis_Button TableTools_Button ui-button ui-state-default btn";
 		nButton.appendChild( nSpan );
 		$(nSpan).html( '<span class="ColVis_title">'+this.s.sShowAll+'</span>' );
 		
@@ -589,8 +589,8 @@ ColVis.prototype = {
 			nSpan = document.createElement('span'),
 			dt = this.s.dt;
 		
-		nButton.className = !dt.bJUI ? "ColVis_Button TableTools_Button" :
-			"ColVis_Button TableTools_Button ui-button ui-state-default";
+		nButton.className = !dt.bJUI ? "ColVis_Button TableTools_Button btn" :
+			"ColVis_Button TableTools_Button ui-button ui-state-default btn";
 		nButton.appendChild( nSpan );
 		var sTitle = this.s.fnLabel===null ? oColumn.sTitle : this.s.fnLabel( i, oColumn.sTitle, oColumn.nTh );
 		$(nSpan).html(
@@ -669,8 +669,8 @@ ColVis.prototype = {
 			nSpan = document.createElement('span'),
 			sEvent = this.s.activate=="mouseover" ? "mouseover" : "click";
 		
-		nButton.className = !this.s.dt.bJUI ? "ColVis_Button TableTools_Button" :
-			"ColVis_Button TableTools_Button ui-button ui-state-default";
+		nButton.className = !this.s.dt.bJUI ? "ColVis_Button TableTools_Button btn" :
+			"ColVis_Button TableTools_Button ui-button ui-state-default btn";
 		nButton.appendChild( nSpan );
 		nSpan.innerHTML = text;
 		

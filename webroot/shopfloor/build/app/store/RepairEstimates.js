@@ -16,11 +16,6 @@
 Ext.define('ShopFloor.store.RepairEstimates', {
     extend: 'Ext.data.Store',
 
-    requires: [
-        'Bancha.Main',
-        'Bancha.REMOTE_API'
-    ],
-
     config: {
         model: Bancha.getModel('RepairEstimate'),
         autoLoad: false,

@@ -16,11 +16,6 @@
 Ext.define('ShopFloor.store.FinishedGoods', {
     extend: 'Ext.data.Store',
 
-    requires: [
-        'Bancha.Main',
-        'Bancha.REMOTE_API'
-    ],
-
     config: {
         model: Bancha.getModel('FinishedGood'),
         storeId: 'FinishedGoods'
