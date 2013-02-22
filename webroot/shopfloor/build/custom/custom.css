@@ -1,0 +1,202 @@
+﻿/* make the background grey */
+#header,
+.x-layout-card-item { /* main panel */
+    background:#DDDDDD;
+}
+
+/**
+ * Header styling
+ */
+.customer-data-header h1,
+#header_left_column .x-form-fieldset-title /* workstation title */ {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px 0 5px 0; /* keep some room for the icon on the right side */
+}
+#header .x-inner.x-html {
+    padding:0em 1.2em 0em 1.2em !important;
+}
+.customer-data-header {
+    text-align: right;
+}
+.customer-data-header h1 {
+    margin:0 !important;
+    line-height:47px;
+    height:47px;
+}
+
+/*
+    BuffSpecs Styling
+*/
+#buff_specs_panel table td {
+    padding:8px;
+}
+/*
+    Remove field padding in prompts
+*/
+.msg-field-nopad .x-field-input {
+    padding-right: 0 !important;
+}
+/*
+    Interior Styling
+*/
+.swipe-tab-open {    
+    border-left:1px solid #777;
+    border-right:1px solid #666;
+    background:#999 url(../img/swipetabarrowsleft.png) center no-repeat;
+}
+.swipe-tab-closed {    
+    border-left:1px solid #777;
+    border-right:1px solid #666;
+    background:#999 url(../img/swipetabarrowsright.png) center no-repeat;
+}
+.main-panel .x-mask-inner {
+    margin:0 !important;
+}
+.field-centered-dark .x-input-el {
+    -webkit-text-fill-color: #000 !important;
+    color:#000 !important;
+}
+.field-centered-dark input {
+    text-align:center !important;
+    color:#000 !important;
+}
+.field-centered input {
+    text-align:center !important;
+}
+/* REPAIR CHECKPOINT GRID */
+.repair-checkpoint-grid .x-field.x-item-disabled {
+    background:url(../img/disabledfield.png) repeat #EBEBEB !important;
+}
+/* GRID COLUMNS */
+.red-cell {
+    background:#FFD9D9 !important;
+}
+.yellow-cell {
+    background:#FFFED2 !important;
+}
+.green-cell {
+    background:#CEFFCE !important;
+}
+
+/* BARCODE CSS */
+.barcode .x-body, .barcodeField, .barcodeFieldInput, .barcodeFieldInput input, .barcodeFieldInput .x-form-label, .barcodeField .x-inner {
+    moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -khtml-border-radius: 0 !important;
+    border-radius: 0 !important;
+    background-color:#FFF !important;
+}
+.barcodeDescription .x-inner {
+    background-color:#000 !important;
+}
+.barcodeDescription .x-innerhtml {
+    color:#FFF !important;
+}
+
+/*
+#top_tool.x-toolbar-dark {background:transparent url(fake_black.png) no-repeat 12% bottom;
+padding: 0.3em 0.2em 0.0em 0.2em;
+overflow: hidden;
+position: relative;
+height: auto;
+border:0px;}
+#ext-toolbar-2.x-toolbar-dark {background:transparent url(dot_first.png) repeat-x 0% bottom;
+padding: 0.2em 0.2em;
+overflow: hidden;
+position: relative;
+height: auto;
+border:0px;}
+#top_tool.x-toolbar-dark.x-docked-top {
+border-bottom-color: black;border-bottom:0px;
+}
+.x-toolbar-dark.x-docked-top .x-inner.x-toolbar-inner.x-layout-hbox
+{background:transparent url(fake_white.png) no-repeat right bottom;}
+#top_tool.x-button-normal.x-button{background:transparent;border:0px;color:#A3A3A3}
+#bottom_tool{
+background:transparent;
+}
+#Cancel_btn {
+border-bottom:4px solid #000;
+border-right:3px solid #000;
+}
+#Fail_btn {
+border-bottom:4px solid #000;
+border-right:3px solid #000;
+}
+#Pass_btn {
+border-bottom:4px solid #000;
+border-right:3px solid #000;
+}
+#btn_intSpc.x-button-normal.x-button{background:transparent url(arrow_black.png) no-repeat center bottom;border:0px;color:#010101}
+#btn_intSpc.x-button-normal.x-button .x-button-label{color:#010101;font-size:20px;}
+
+#btnLogOut.x-button-normal.x-button 
+{
+    width:100px;background:#fff;border-radius:0px;-webkit-border-radius:0px;border:2px solid #000;margin-right:10px;
+    -webkit-box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;line-height: 1.2em
+ }
+#btnLogOut.x-button-normal.x-button .x-button-label 
+{color:#010101;}
+ #btnLogOut.x-button-normal.x-button.x-button-pressing 
+{
+    background:#fff;border-radius:0px;-webkit-border-radius:0px;border:2px solid #000;
+    -webkit-box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;
+ }
+ 
+ #right_seg_btn .x-button-normal,#left_seg_btn .x-button-normal{
+    color:#010101!important;
+    background:#fff;border-radius:0px;-webkit-border-radius:0px;border:2px solid #000;
+    -webkit-box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;
+ }
+ #btn_edit{
+ width:20%;
+ height:25px;
+ color:#010101;
+ margin-top:-18px;
+ background:#fff;border-radius:0px;-webkit-border-radius:0px;border:2px solid #000;
+    -webkit-box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;box-shadow:rgba(0, 0, 0, 1) 0.3em 0.2em 0.3em;
+ }
+ #title{font-size:14px;color:#000;float:right;text-align:right;padding-right:10px;padding-top:6px;}
+ .headingCmp{font-size:25px;float:right}
+ #rightcont{font-size:16px;color:#000;font-weight:bold;}
+ 
+#special_inst .x-clear-icon,#tag_num .x-clear-icon,#dot_number .x-clear-icon,#leftcont .x-clear-icon{background: url('data:image/png;base64,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') no-repeat;
+    background-position: center center;
+    background-size: 55% 55%;
+    width: 2.2em;
+    height: 2.2em;
+    margin: .5em;
+    margin-top: -1.1em;
+    position: absolute;
+    top: 50%;
+    right: -0.5em;
+}
+
+/ *
+.x-tab .x-button-icon.minusIcon,.x-button .x-button-icon.x-icon-mask.minusIcon{-webkit-mask-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAABkUlEQVRoBe2aP0oDQRjFd/xDFDsxnSDYeADBKgewSWUpeAovoLYW1im9glewEixyAcE2iJ0GcXV9L+5WXzXlvHkfvOxkwsL+vt8muzskdV3X1FRrNcGS1cDqxm3YhsU64FNaTGjAseHQErEJGxYTGnBsOLREbMKGxYQGHBsOLRGbsGExoQFnY5hJKa1jfIBMkGOkdPu/YHhGHpFXLFb+YNskrloCdgfjC+QS2UW2EYVaAuIduUXuwfpBqE3kCuGHXLNVDNnIuDqjzzBQhh0EkvGc39s75AhRL9rdT3gh+ZY6bc/XEpjKq6nSLz3Zogyc3bLCdrDhwoRlHy4Nt9l7lbtDS+B5uceffeRz3mnxOnyKcKxc34C7JuAImSFfyHDfqbYlGxlHTf+nljHe3CAL5BPh97p0aDKQhUxkG68ehXtgPhPT9AkyRQ6RPaTkesPBvyAPyBM4afl/AYCDWoq/0lWVgdV127ANi3XAp7SY0IBjw6ElYhM2LCY04NhwaInYhA2LCQ04NhxaIjZhw2JCA84f2NkXe/UgvHoAAAAASUVORK5CYII=');height:18px;}
+* /
+
+#fieldTop_production .x-form-fieldset-title{
+text-shadow: white 0 1px 1px;
+color: #333;
+margin: 0em 0.0em 0.0em;
+font-weight: bold;
+white-space: nowrap;
+position:relative;top:-10px;font-size:2em;color:#000!important
+}
+
+p{margin:0px!important;padding:0px;}
+*/
+
+
+
+/**
+ * When we get an error from the server the alert message box is often too small to display it,
+ * so make it larger
+ */
+.x-msgbox {
+    max-width: 100%;
+}
+
+/* eof */

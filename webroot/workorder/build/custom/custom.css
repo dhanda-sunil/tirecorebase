@@ -1,0 +1,135 @@
+﻿/**
+ * Some keyframes to minimize javascript usage for effects
+ * See also http://cssnerd.com/2012/04/03/jquery-like-pure-css3-image-fade-in/
+ */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-o-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+
+/* make the background grey */
+#header,
+.x-layout-card-item { /* main panel */
+	background:#DDDDDD;
+}
+
+/**
+ * Header styling
+ */
+.customer-data-header h1,
+#header_left_column .x-form-fieldset-title /* workstation title */ {
+	font-size: 25px;
+	font-weight: bold;
+	margin: 10px 0 5px 0; /* keep some room for the icon on the right side */
+}
+.customer-data-header {
+	text-align: right;
+	margin-bottom: 10px;
+}
+.customer-data-header h1 {
+	margin-right: 30px;
+}
+
+/**
+ * Override the default header alignment when using the 
+ * .grid-header-align-left class
+ */
+.touchgridpanel .x-grid-cell-hd {
+	text-align: left !important;
+	padding-left: 1em;
+}
+.highlight-filter-match {
+	background-color: yellow;
+}
+
+.x-title .x-innerhtml {
+	padding: 0 .2em;
+}
+
+/**
+ * Make a nice warning if there are too many records to display
+ * Since we just deploy to iPads we can use CSS3 without browser vendor prefixes
+ */
+.touchgridpanel .notice {
+	background-color: yellow;
+	border: 1px solid #999;
+	border-radius: 5px;
+	box-shadow:0 0 4px rgba(0, 0, 0, 0.4);
+	padding: 5px 15px;
+}
+
+
+
+/**
+ * Make a the duplicate and delete buttons in the CoCasingitems touchgridpanel look good
+ */
+.touchgridpanel div.x-button {
+	display: inline-block;
+	width: 70px;
+	height: 22px;
+	margin-left: 5px;
+}
+.touchgridpanel div.x-button.destroy {
+	width: 60px;
+}
+.touchgridpanel div.x-button.more {
+	width:50px;
+	background-image: none;
+	background-color: #11598C;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1985D0), color-stop(3%, #1468A2), color-stop(100%, #0E4B75));
+	background-image: -webkit-linear-gradient(top, #1985D0,#1468A2 3%,#0E4B75);
+	background-image: linear-gradient(top, #1985D0,#1468A2 3%,#0E4B75);
+}
+
+
+/**
+ * Add a nice fade in animation for touchgrid items
+ */
+.x-touchgrid-item {
+	opacity:0; /* start with no opaccity */
+
+	/* fade it in */
+	-webkit-animation:fadeIn ease-in 1;
+	-moz-animation:fadeIn ease-in 1;
+	-o-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+
+	/* keep it displayed */
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+
+	/* take 0.7 seconds for the effect */
+	-webkit-animation-duration:0.7s;
+	-moz-animation-duration:0.7s;
+	-o-animation-duration:0.7s;
+	animation-duration:0.7s;
+
+	/* no deplay before starting */
+	-webkit-animation-delay:0s;
+	-moz-animation-delay:0s;
+	-o-animation-delay:0s;
+	animation-delay:0s;
+}
+
+/**
+ * To visually only input uppercase letters in the DOT field we can set this class
+ * on a textfield input. You still have to transform the value to upper case with 
+ * javascript on the change event
+ */
+.input-text-transform-uppercase input {
+	text-transform: uppercase;
+}
+
+
+/**
+ * When we get an error from the server the alert message box is often too small to display it,
+ * so make it larger
+ */
+.x-msgbox {
+	max-width: 100%;
+}
+
+/* eof */
