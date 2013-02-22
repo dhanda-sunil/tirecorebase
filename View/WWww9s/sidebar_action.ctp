@@ -1,4 +1,4 @@
-<div class="accordion-group">
+<div classsss="accordion-group">
     <div class="accordion-heading">
         <a href="#collapseOne" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
             <i class="icon-user"></i> W Www9s        </a>
